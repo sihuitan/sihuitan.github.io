@@ -1,0 +1,436 @@
+@charset "UTF-8";
+
+/*
+   css Copyright © 2005-2012 Karelia Software. All rights reserved.
+   css released under Creative Commons License  - http://creativecommons.org/licenses/by-sa/2.5/
+   All associated graphics belong to their respective owners and are licensed separately.
+*/
+
+/* IE7 hacks */
+
+*:first-child+html .gridItem img {
+	position:relative;
+	top:0px;
+}
+
+*:first-child+html .gridItem h3 {
+	position:relative;
+	top:0px;
+}
+
+/* Navigation arrows */
+div.text-navigation { text-align:center; margin-bottom:1em;}
+div.text-navigation div { display:inline; margin:0px 0.5em; }
+.collection-navigation .disabled-navigation { text-indent:-5000px; }
+
+/* 2.0 wrap compatibility. 2.0-compatible designs can further adjust these if they need */
+.wide { display:block; }
+
+.narrow.left {   /* Some designs won't respect without !important */
+    float:left!important;
+    clear:left!important;
+}
+.narrow.right {
+    float:right!important;
+    clear:right!important;
+}
+
+.wide.left   .graphic, img.wide.left,   .wide.left video,   .wide.left audio   { display:block; margin-left:0px; margin-right:auto; }
+.wide.center .graphic, img.wide.center, .wide.center video, .wide.center audio { display:block; margin-left:auto; margin-right:auto; }
+.wide.right  .graphic, img.wide.right,  .wide.right video,  .wide.right audio  { display:block; margin-left:auto; margin-right:0px; }
+
+
+.ImageElement.left, .AudioElement.left { text-align:left; }
+.ImageElement.center, .AudioElement.center { text-align:center; }
+.ImageElement.right, .AudioElement.right { text-align:right; }
+
+/* Captions should align themselves with the graphic */
+.graphic-container.left .caption { text-align:left; }
+.graphic-container.center .caption { text-align:center; }
+.graphic-container.right .caption { text-align:right; }
+
+/* Inline iframes need to display as a block to layout right */
+.graphic iframe { display:block; }
+
+/* Pagelet photo grids should be generally be auto width (some 1.x designs hardcoded an exact width) */
+.pagelet .photogrid-index { width:auto; }
+
+/* For content like amazon which forces white background. Design SHOULD set color for A tag and text color. */
+.whiteBackground
+{
+	background-color:white;
+}
+
+.article-info
+{
+	margin-bottom:1em;
+}
+
+/* Firefox reduce dotted lines on links */
+.photo-navigation a:focus, .replaced a:focus {overflow:hidden;}
+
+/* Disqus correction to prevent overflow scroll bars in some designs */
+#dsq-content { overflow:hidden; }
+#dsq-content .dsq-auth-header { width: auto!important; }
+#dsq-content .dsq-by { margin: 4px 6px 0px 0px; }
+#dsq-content .dsq-by a, #dsq-content .dsq-by a:hover { border: 0px none; }
+#dsq-content h3 { margin:0px; }
+
+/* Site menus. Don't wrap the top level items, and wrap sub-menu items normaly. */
+#sitemenu-content ul li span.in { white-space:nowrap;}
+* html #sitemenu-content ul li span.in {white-space: normal}
+*:first-child+html #sitemenu-content ul li span.in {white-space: normal}
+#sitemenu-content ul ul li span.in {white-space: normal}
+#sitemenu-content span.in { position: relative; }
+
+body { word-wrap:break-word; }
+
+/* Make sure scaled-down images look good in IE */
+img { -ms-interpolation-mode: bicubic; }
+
+.HTMLElement { overflow:hidden; }
+
+/* ============================================ *
+   -- Simple Rabbit --
+   v3.0 (301)
+   A Design for Sandvox created by BehindTheRabbit
+   http://www.behindtherabbit.com/
+   ============================================ */
+
+/* ====================
+   GENERAL
+   --------------------
+*/
+a:link, a:visited {text-decoration:none;}
+a:hover, a:active {text-decoration:underline;}
+a.imageLink {text-decoration:none;}
+h2, h3, h4 {margin-top:0;}
+
+img {border:none;}
+body.allow-sidebar #main img {max-width:100%; height:auto;}
+#googlemap img {max-width:none !important;}
+.pagelet img {margin-left:auto; margin-right:auto;}
+.ImageElement, .center.VideoElement { text-align:center;}
+
+dl, dd {font-size:1.2em;}
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+.clear {clear: both; height: 0;}
+.hidden {display:none !important;}
+.right {margin-left:20px;}
+.left {margin-right:20px;}
+
+code, pre { padding: 0 3px 2px; font-family: Menlo,Monaco,"Courier New",monospace; font-size: 12px; color: #333333; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
+code { padding: 3px 4px; color: #d14; background-color: #f7f7f9; border: 1px solid #e1e1e8; }
+pre { display: block; padding: 8.5px; margin: 0 0 9px; font-size: 12px; line-height: 18px; background-color: #f5f5f5; border: 1px solid #ccc; border: 1px solid rgba(0,0,0,0.15); -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; white-space: pre; white-space: pre-wrap; word-break: break-all; }
+pre code { padding: 0; background-color: transparent; }
+abbr {font-variant:small-caps;}
+cite {font-family:Georgia, Times, "Times New Roman", serif; font-style:italic; color:#999;}
+cite em {font-style:normal;}
+
+/* ====================
+   LAYOUT
+   --------------------
+*/
+body {font-size: 76%; margin:0; padding:0;
+	background-color: #EEE;
+	font-family: Arial, Helvetica, sans-serif; color:#333;}
+#page-container {
+	background-color: #FFF;
+	box-shadow:0 4px 4px #999;	
+	padding:0; 
+	width:900px; 
+	margin:0 auto 30px auto;
+}
+#page-bottom {
+	font-size:0.9em; color:#999; 
+	clear:both; text-align:center; margin:0; padding:40px 20px 34px 20px;
+}
+#title {
+	padding:0 10px 20px 10px; 
+	margin:0; overflow:hidden; height:140px;
+}
+#title img { float:right; margin:10px 40px 0 0; padding:0; }
+#title p {padding:0 20px 0 22px; margin:0; font-size:1.2em; text-shadow:#CCC 0px 1px 2px;}
+h1 {font-family: Arial, Helvetica, sans-serif; font-size:3em; font-weight:normal; padding: 30px 20px 0 20px; text-shadow: 1px 2px 2px #CCC; margin:0;}
+h1 a {text-decoration:none;}
+
+/* ====================
+   SITEMENU
+   --------------------
+*/
+#sitemenu-container {width:840px; min-height:30px; margin: 0 auto; padding:0; border-top:1px solid #EEE; border-bottom:1px solid #EEE; color:#CCC;}			
+#sitemenu {word-wrap: break-word !important; }
+#sitemenu ul {margin:0; padding:12px 0;}
+#sitemenu li {display:inline; margin:0; padding:5px 16px 12px 0; list-style-type:none;}
+#sitemenu a {text-decoration:none !important;}
+#sitemenu ul li ul li .in {display:block; padding:8px 4px 8px 8px !important;}
+#sitemenu ul li ul li .in:hover {background-color:#F6F6F6;}
+#sitemenu li.currentPage {color:#999;}
+#sitemenu a:hover {
+	text-shadow:0 1px 2px #DDD;
+}
+#sitemenu-content ul li ul {
+	border: 1px solid #DDD !important;
+	-webkit-box-shadow:0 2px 2px #CCC !important;
+		-moz-box-shadow:0 2px 2px #CCC !important;
+		box-shadow:0 2px 2px #CCC !important;
+}
+#sitemenu-content ul li ul .last-item span,
+#sitemenu-content ul li ul .last span {border-bottom:none !important;}
+ul .submenu-indicator {background-image:url(images/chevron-down.png) !important; margin-left:5px;}
+ul ul .submenu-indicator {background-image:url(images/chevron-right.png) !important; top:10px !important;}
+
+/* fix to a weird bug */
+#sitemenu-content a, #sitemenu-content ul li ul .in {border-color:#DDD !important;}
+
+
+/* ====================
+   SIDEBAR
+   --------------------
+*/
+#sidebar-container {width:280px; float:left; padding:0 0 0 15px; margin:0 0 10px 0; }
+#sidebar-top {height:40px;}
+#sidebar-content {border-right:1px solid #DDD;}
+#sidebar ul {margin:0 0 0 20px; padding:10px 0;}
+#sidebar li {margin:0; padding:0;}
+#sidebar a:link, #sidebar a:visited {text-decoration:none;}
+#sidebar a:hover, #sidebar a:active {text-decoration:underline;}
+
+
+/* ====================
+   MAIN BODY
+   --------------------
+*/
+#main {min-height:450px; padding-top:40px;font-family:Verdana, Arial, Helvetica, sans-serif; }
+body.no-sidebar #main {
+	padding:40px 70px;
+}
+body.allow-sidebar #main {
+	width:560px; float:right; 
+	padding-right:30px;
+}
+#main-content {padding:10px 0 20px 0;}
+#main h2 {margin:0; padding:0 0 10px 0; font-size:2.5em; font-weight:normal; text-shadow:#777 0px 1px 2px; }
+h2, h3, h4, h5 {font-family:Arial, Helvetica, sans-serif; }
+.article h3 {margin:0; padding:30px 0 10px 0; font-size:2em; font-weight:normal; text-shadow:#777 0px 1px 2px;}
+h4 {font-size:1.2em; line-height:1.4em;}
+h3 a:link, h3 a:visited {color:#333 !important; text-decoration:none;}
+h3 a:hover, h3 a:active {color:#333 !important; text-decoration:underline;}
+.article {line-height:2.1em;}
+.article-thumbnail {float:left; margin:18px 10px 0 0;}
+.timestamp {text-align:right; padding:10px 0 20px 0; clear:both;font-family: "Monaco", Courier, "Courier New", monospace;}
+.timestamp a {text-decoration:none;}
+
+
+/* ====================
+   PAGELETS
+   --------------------
+*/
+.callout-container {width:260px; float:right; padding-left:20px;}
+.callout-content {padding-left:8px;}
+
+.pagelet {
+	border: 1px solid #FFF;
+	font-family:Arial, Helvetica, sans-serif !important;
+	line-height:1.6em;
+	width:238px; word-wrap:break-word; overflow:hidden;
+	margin:0 0 20px 0; padding:10px 5px 10px 5px; 
+}
+.pagelet ul {line-height:1.4em;}
+.pagelet h4 {margin:0 0 10px 0; padding:0 0 10px 0; text-align:center; border-bottom: 1px solid #DDD;}
+.pagelet-body p {padding:5px 5px 0 5px;}
+.pagelet-body .ImageElement {padding:5px 0 10px 0;}
+
+.bordered {
+	border:1px solid #DDD;
+	-webkit-border-radius:10px;
+		-moz-border-radius:10px;
+		border-radius:10px;
+	-webkit-box-shadow:0 2px 2px #CCC;
+		-moz-box-shadow:0 2px 2px #CCC;
+		box-shadow:0 2px 2px #CCC;
+}
+.bordered .pagelet-body {
+	padding:0 10px;
+}
+
+
+/* ====================
+   SITEMAP
+   --------------------
+*/
+.sitemap ul li {list-style:none !important;}
+.wide .sitemap a {text-decoration:none; display:block; color:#333;}
+.wide .sitemap .figure-content {padding:5px 10px; margin:0;	border:1px solid #CCC; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; -webkit-transition:all 0.3s ease; -moz-transition:all 0.3s ease;	transition:all 0.3s ease;}
+.wide .sitemap .figure-content:hover {-webkit-box-shadow:3px 3px 3px #CCC; -moz-box-shadow:3px 3px 3px #CCC; box-shadow:3px 3px 3px #CCC;}
+.wide .sitemap .figure-content p {margin:5px 0;}
+.wide .sitemap ul {border:1px solid #FFF; padding:5px 10px; margin:0; list-style-type:none; -webkit-transition:all 0.3s ease; -moz-transition:all 0.3s ease; transition:all 0.3s ease; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px;}
+.wide .sitemap ul:hover {border:1px solid #CCC; -webkit-box-shadow:3px 3px 3px #CCC; -moz-box-shadow:3px 3px 3px #CCC; box-shadow:3px 3px 3px #CCC;}
+
+
+/* ====================
+   FORMS
+   --------------------
+*/
+#main #contactform .labelsOnSide textarea {
+	width:600px;
+}
+input[type=text], input[type=email], textarea {
+	border:1px solid #EEE;
+	background-color:#FFF; font-size:120%; padding:5px;
+	-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
+	-webkit-box-shadow:0 0 2px #DDD; -moz-box-shadow:0 0 2px #DDD; box-shadow:0 0 2px #DDD;
+	}
+/* thanks to http://webdesignerwall.com/tutorials/css3-gradient-buttons for this nice styling */
+
+input[type=submit] {
+	min-width:25% !important; border: solid 1px #555;
+	-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
+	background-color: #6e6e6e; padding:6px; font-size:100%; font-weight:bold; color:#e9e9e9; cursor:pointer; outline: none; text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2); -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2); box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	background: -webkit-gradient(linear, left top, left bottom, from(#888), to(#575757));
+	background: -moz-linear-gradient(top,  #888,  #575757);
+}
+input[type=submit]:hover {
+	background-color: #616161;
+	background: -webkit-gradient(linear, left top, left bottom, from(#757575), to(#4B4B4B));
+	background: -moz-linear-gradient(top,  #757575,  #4B4B4B);
+}
+input[type=submit]:active {
+	position: relative; top: 1px; color: #AFAFAF;
+	background: -webkit-gradient(linear, left top, left bottom, from(#575757), to(#888));
+	background: -moz-linear-gradient(top,  #575757,  #888);
+}
+
+
+/* ====================
+   PHOTO GRID
+   --------------------
+*/
+.gridItem {
+	float:left;	position:relative; width:180px; height:188px; overflow:hidden;
+	margin:0 8px 8px 0; text-align:center; padding: 4px 0; border:1px solid #CCC;
+	-webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px;
+	-webkit-box-shadow:0 1px 2px #999; -moz-box-shadow:0 1px 2px #999; box-shadow:0 1px 2px #999;
+	-webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; transition: all 0.3s ease;
+}
+.gridItem:hover {border:1px solid #999;}
+.gridItem a {text-decoration:none;}
+.gridItem h3 {font-size:0.9em; line-height:1.2em; font-weight:normal; padding: 3px 6px 0 6px; text-align:center; position:absolute; top:140px; width:172px;
+	text-shadow:#DDD 1px 1px 1px;
+}
+.gridItem img {
+	margin: auto !important; display:block; position: absolute; top: 0; bottom: 48px; right: 0; left: 0;
+	-webkit-box-shadow: 0 2px 3px #999; -moz-box-shadow: 0 2px 3px #999; box-shadow: 0 2px 3px #999;
+}
+.gridItem:hover img {
+	-webkit-box-shadow: 0 2px 3px #666; -moz-box-shadow: 0 2px 3px #666; box-shadow: 0 2px 3px #666;
+}
+
+/* photogrid in sidebar */
+.pagelet .photogrid-index .gridItem {margin:0 auto 10px auto !important; float:none;}
+.pagelet .photogrid-index .gridItem h3 {width:160px;}
+
+
+/* ====================
+   NAVIGATION
+   --------------------
+*/
+.collection-navigation {clear:both;}
+/* Photo navigation
+   --------------------
+*/
+.photo-navigation {
+	height:26px;
+	width:169px;
+	margin:0 auto 20px auto;
+}
+.photo-navigation .previous-page a,
+.photo-navigation .next-page a,
+.photo-navigation .collection-index a {
+	opacity:0.4;
+	display:block;
+	height:26px;
+	text-indent:-9999px;
+	overflow:hidden;
+}
+.photo-navigation .collection-index {
+	margin-left:17px;
+}
+.photo-navigation .previous-page a:hover,
+.photo-navigation .next-page a:hover,
+.photo-navigation .collection-index a:hover {
+	opacity:1;
+	-webkit-transition:all 0.2s ease;
+		-moz-transition:all 0.2s ease;
+		-ms-transition:all 0.2s ease;
+		transition:all 0.2s ease;
+}
+.photo-navigation .previous-page a {background:url(images/arrows.png) 0 0 no-repeat #FFF;}
+.photo-navigation .next-page a {background:url(images/arrows.png) -124px 0 no-repeat #FFF;}
+.photo-navigation .collection-index a {background:url(images/arrows.png) -62px 0 no-repeat #FFF;}
+.photo-navigation .previous-page {width:45px; float:left;}
+.photo-navigation .next-page {width:45px; float:right;}
+.photo-navigation .collection-index {width:45px; float:left;}
+
+/* Text navigation */
+.text-navigation {font-size:0.9em; padding:10px 0 20px 0;}
+.text-navigation .previous-page, .text-navigation .next-page, .text-navigation .collection-index {display:block; text-align:right; border-right:4px solid #DDD; padding:2px 5px 2px 2px; margin:0 0 1px 0;}
+.text-navigation a:link, .text-navigation a:visited { text-decoration:none;}
+.text-navigation a:hover, .text-navigation a:active { text-decoration:underline;}
+
+
+/* ====================
+   BLOCKQUOTES 
+   --------------------
+*/
+blockquote {
+	color:#999;
+	padding:0 40px 0 50px; margin:20px 0; min-height:27px;
+	background:url(images/quotes-open.png) 0 0 no-repeat, url(images/quotes-close.png) bottom right no-repeat;
+}
+
+
+/* ====================
+   OTHER
+   --------------------
+*/
+
+/* Custom banner */
+.has-custom-banner #title {background-position: 0 0; background-repeat:no-repeat;}
+
+/* fixes for IE7 */
+*+html #sitemenu .in:hover {background:none !important;}
+*+html .hasSubmenu ul li ul {top:5px !important;}
+*+html #sitemenu a:hover {text-decoration:underline !important;}
+*+html .gridItem {border:none !important;}
+*+html .gridItem h3 {margin-top:10px;}
+
+/* ====================
+   CODE INJECTIONS
+   --------------------
+*/
+.orange a, .orange h1, .orange #title p, .orange .wide .sitemap a:hover {color:#F90;}
+.blue a, .blue h1, .blue #title p, .blue .wide .sitemap a:hover {color:#336699;}
+.green a, .green h1, .green #title p, .green .wide .sitemap a:hover {color:#339966;}
+.red a, .red h1, .red #title p, .red .wide .sitemap a:hover {color:#900;}
+
+.right-sidebar #sidebar-container {float:right;}
+body.allow-sidebar .right-sidebar  #main {
+	float:left; 
+	padding-right:0; padding-left:30px;
+}
+.right-sidebar #sidebar-content {border-left:1px solid #DDD; border-right:none; }
+.right-sidebar #sidebar-content { padding:0 0 0 15px;}
+
+.no-grid-frame .gridItem, .no-grid-frame .gridItem:hover {border:1px solid #FFF; box-shadow:none;}
+
+.no-shadow-title h1, .no-shadow-title #title p {text-shadow:none;}
+
+a, h1, #title p, .wide .sitemap a:hover {color:#900;}
+
+.callout-container, .graphic-container { clear:right; }
+

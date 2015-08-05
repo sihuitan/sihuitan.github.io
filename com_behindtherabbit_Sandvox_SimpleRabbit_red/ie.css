@@ -1,0 +1,10 @@
+@charset "UTF-8";
+input[type=submit] {
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#888888', endColorstr='#575757');
+}
+input[type=submit]:hover {
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#757575', endColorstr='#4B4B4B');
+}
+input[type=submit]:active {
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#575757', endColorstr='#888888');
+}
