@@ -88,7 +88,9 @@ body { word-wrap:break-word; }
 /* Make sure scaled-down images look good in IE */
 img { -ms-interpolation-mode: bicubic; }
 
-.HTMLElement { overflow:hidden; }
+.sandvox_icon_white { display:block; text-indent:-9999px; background:url(../_Resources/sandvox_icon_white.png) no-repeat; margin:auto !important; width:88px; height:31px; }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-resolution: 240dpi) { .sandvox_icon_white { background:url(../_Resources/sandvox_icon_white@2x.png) no-repeat; -moz-background-size:88px 31px; -o-background-size:88px 31px; -webkit-background-size:88px 31px; background-size:88px 31px; } }
 
 /* ============================================ *
    -- Simple Rabbit --
@@ -429,6 +431,31 @@ body.allow-sidebar .right-sidebar  #main {
 .no-grid-frame .gridItem, .no-grid-frame .gridItem:hover {border:1px solid #FFF; box-shadow:none;}
 
 .no-shadow-title h1, .no-shadow-title #title p {text-shadow:none;}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-resolution: 240dpi) {
+/* ============================================ *
+  -- Simple Rabbit --
+  Retina-ready CSS
+  ============================================ */
+
+ul .submenu-indicator {
+	background-image:url(images/chevron-down@2x.png) !important;
+	background-size:13px 6px;
+}
+ul ul .submenu-indicator {
+	background-image:url(images/chevron-right@2x.png) !important;
+	background-size:6px 13px;
+}
+blockquote {
+	background-image:url(images/quotes-open@2x.png), url(images/quotes-close@2x.png);
+	background-size:34px 27px, 33px 27px;
+}
+.photo-navigation .previous-page a,
+.photo-navigation .next-page a,
+.photo-navigation .collection-index a {
+	background-image:url(images/arrows.svg);
+}
+}
 
 a, h1, #title p, .wide .sitemap a:hover {color:#900;}
 
